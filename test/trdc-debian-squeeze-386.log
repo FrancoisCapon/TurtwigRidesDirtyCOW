@@ -1,0 +1,263 @@
+user@debian:~$ ./test.sh ./trdc-debian-squeeze-386.elf
+
+Tests: Turtwig rides DirtyCow
+Kernel: 2.6.32-5-686
+Program: ./trdc-debian-squeeze-386.elf
+Md5: bdbccfef944df72c6cf47f30aa9e792d
+Architecture: 32-bit
+Pokedata word size: 4
+
+Scenario Group: 1 : file fits word size, data is one word
+
+Scenario: 1.1 : one word at the begin
+Duration: 0.057 seconds
+Test: 1.1.1 : target content
+Expected: 0123<oo><oo><oo><oo>
+Obtained: 0123<oo><oo><oo><oo>
+Result  : ok
+
+Scenario: 1.2 : one word at the end
+Duration: 0.221 seconds
+Test: 1.2.1 : target content
+Expected: <oo><oo><oo><oo>0123
+Obtained: <oo><oo><oo><oo>0123
+Result  : ok
+
+Scenario: 1.3 : one word fit of the third word
+Duration: 0.289 seconds
+Test: 1.3.1 : target content
+Expected: <oo><oo>0123<oo><oo>
+Obtained: <oo><oo>0123<oo><oo>
+Result  : ok
+
+Scenario: 1.4 : one word fit of the second word
+Duration: 0.197 seconds
+Test: 1.4.1 : target content
+Expected: <oo>0123<oo><oo><oo>
+Obtained: <oo>0123<oo><oo><oo>
+Result  : ok
+
+Scenario: 1.5 : offset 1
+Duration: 0.581 seconds
+Test: 1.5.1 : target content
+Expected: <0123oo><oo><oo><oo>
+Obtained: <0123oo><oo><oo><oo>
+Result  : ok
+
+Scenario: 1.6 : offset before last 
+Duration: 0.009 seconds
+Test: 1.6.1 : target content
+Expected: <oo><oo><oo><oo0123>
+Obtained: <oo><oo><oo><oo0123>
+Result  : ok
+
+Scenario: 1.7 : offset word size + 1
+Duration: 0.113 seconds
+Test: 1.7.1 : target content
+Expected: <oo><0123oo><oo><oo>
+Obtained: <oo><0123oo><oo><oo>
+Result  : ok
+
+Scenario Group: 2 : file do not fits word size, data is one word
+
+Scenario: 2.1 : one word at the begin
+Duration: 0.110 seconds
+Test: 2.1.1 : target content
+Expected: 0123<oo><oo><oo><oo><
+Obtained: 0123<oo><oo><oo><oo><
+Result  : ok
+
+Scenario: 2.2 : one word at the end
+Duration: 0.088 seconds
+Test: 2.2.1 : target content
+Expected: <oo><oo><oo><oo><0123
+Obtained: <oo><oo><oo><oo><0123
+Result  : ok
+
+Scenario: 2.3 : one word fit of the third word
+Duration: 0.084 seconds
+Test: 2.3.1 : target content
+Expected: <oo><oo>0123<oo><oo><
+Obtained: <oo><oo>0123<oo><oo><
+Result  : ok
+
+Scenario: 2.4 : one word fit of the second word
+Duration: 0.111 seconds
+Test: 2.4.1 : target content
+Expected: <oo>0123<oo><oo><oo><
+Obtained: <oo>0123<oo><oo><oo><
+Result  : ok
+
+Scenario: 2.5 : data in first position
+Duration: 0.406 seconds
+Test: 2.5.1 : target content
+Expected: <0123oo><oo><oo><oo><
+Obtained: <0123oo><oo><oo><oo><
+Result  : ok
+
+Scenario: 2.6 : last data byte on before last
+Duration: 0.093 seconds
+Test: 2.6.1 : target content
+Expected: <oo><oo><oo><oo>0123<
+Obtained: <oo><oo><oo><oo>0123<
+Result  : ok
+
+Scenario Group: 3 : file do not fits word size, data is three words
+
+Scenario: 3.1 : data at the begin
+Duration: 0.261 seconds
+Test: 3.1.1 : target content
+Expected: 012301230123<oo><oo><
+Obtained: 012301230123<oo><oo><
+Result  : ok
+
+Scenario: 3.2 : data at the end
+Duration: 0.122 seconds
+Test: 3.2.1 : target content
+Expected: <oo><oo><012301230123
+Obtained: <oo><oo><012301230123
+Result  : ok
+
+Scenario: 3.3 : data on the second position
+Duration: 0.440 seconds
+Test: 3.3.1 : target content
+Expected: <012301230123oo><oo><
+Obtained: <012301230123oo><oo><
+Result  : ok
+
+Scenario: 3.4 : last data byte on before last
+Duration: 0.508 seconds
+Test: 3.4.1 : target content
+Expected: <oo><oo>012301230123<
+Obtained: <oo><oo>012301230123<
+Result  : ok
+
+Scenario Group: 4 : file do not fits word size, data is one charater => padding
+
+Scenario: 4.1 : data at the begin, file padding three
+Duration: 0.043 seconds
+Test: 4.1.1 : target content
+Expected: 0oo><oo><oo><oo><oo><
+Obtained: 0oo><oo><oo><oo><oo><
+Result  : ok
+
+Scenario: 4.2 : data at the end, three x0 padding
+Duration: 0.169 seconds
+Test: 4.2.1 : target content
+Expected: <oo><oo><oo><oo><oo>0
+Obtained: <oo><oo><oo><oo><oo>0
+Result  : ok
+
+Scenario: 4.3 : last data byte on before last, one file and two x0 padding
+Duration: 0.109 seconds
+Test: 4.3.1 : target content
+Expected: <oo><oo><oo><oo><oo0<
+Obtained: <oo><oo><oo><oo><oo0<
+Result  : ok
+
+Scenario: 4.4 : last data byte on before last, two file and one x0 padding
+Duration: 0.310 seconds
+Test: 4.4.1 : target content
+Expected: <oo><oo><oo><oo><o0><
+Obtained: <oo><oo><oo><oo><o0><
+Result  : ok
+
+Scenario Group: 5 : file do not fits word size, data is three words + one charater => padding
+
+Scenario: 5.1 : data at the begin, file padding three
+Duration: 0.388 seconds
+Test: 5.1.1 : target content
+Expected: 0123012301230oo><oo><
+Obtained: 0123012301230oo><oo><
+Result  : ok
+
+Scenario: 5.2 : data at the end, three x0 padding
+Duration: 0.999 seconds
+Test: 5.2.1 : target content
+Expected: <oo><oo>0123012301230
+Obtained: <oo><oo>0123012301230
+Result  : ok
+
+Scenario: 5.3 : last data byte on before last, one file and two x0 padding
+Duration: 0.590 seconds
+Test: 5.3.1 : target content
+Expected: <oo><oo0123012301230<
+Obtained: <oo><oo0123012301230<
+Result  : ok
+
+Scenario Group: 6 : file do not fits word size, data is three words + one charater => padding
+
+Scenario: 6.1 : data at the begin, file padding three
+Duration: 0.417 seconds
+Test: 6.1.1 : target content
+Expected: 0123012301230oo><oo><
+Obtained: 0123012301230oo><oo><
+Result  : ok
+
+Scenario: 6.2 : data at the end, three x0 padding
+Duration: 0.737 seconds
+Test: 6.2.1 : target content
+Expected: <oo><oo>0123012301230
+Obtained: <oo><oo>0123012301230
+Result  : ok
+
+Scenario: 6.3 : last data byte on before last, one file and two x0 padding
+Duration: 0.258 seconds
+Test: 6.3.1 : target content
+Expected: <oo><oo0123012301230<
+Obtained: <oo><oo0123012301230<
+Result  : ok
+
+Scenario Group: 7 : file more three memory page size, data one character
+
+Scenario: 7.1 : data at the begin
+Duration: 0.241 seconds
+Test: 7.1.1 : target content
+Expected: d5d38c134e1943554b9ba4f3313458b8
+Obtained: d5d38c134e1943554b9ba4f3313458b8
+Result  : ok
+
+Scenario: 7.2 : data at the end
+8194
+Duration: 0.096 seconds
+Test: 7.2.1 : target content
+Expected: a937b3d8f8605da45b8779066b47d1c6
+Obtained: a937b3d8f8605da45b8779066b47d1c6
+Result  : ok
+
+Scenario Group: 8 : file more one memory page size, replace all bytes, may take minute(s)
+
+Scenario: 8.1 : data bytes replace all file bytes
+Duration: 123.576 seconds
+Test: 8.1.1 : target content
+Expected: e22f7d1bb3ddf8adf1c11e1d563c4be5
+Obtained: e22f7d1bb3ddf8adf1c11e1d563c4be5
+Result  : ok
+
+Scenario Group: 9 : file more five memory page size, date more on page size, may take minute(s)
+
+Scenario: 9.1 : data at the begin
+Duration: 126.208 seconds
+Test: 9.1.1 : target content
+Expected: bc9f66114c595ba8e851f2ae19975266
+Obtained: bc9f66114c595ba8e851f2ae19975266
+Result  : ok
+
+Scenario: 9.2 : data at the end
+Duration: 4.894 seconds
+Test: 9.2.1 : target content
+Expected: 84ad87583ceae6c6ee2a51a2a46c46a9
+Obtained: 84ad87583ceae6c6ee2a51a2a46c46a9
+Result  : ok
+
+Scenario: 9.3 : data at the middle and non aligned of pages size
+Duration: 5.318 seconds
+Test: 9.3.1 : target content
+Expected: 138bbdec4c23e6e1684c0dfa68ae8ddb
+Obtained: 138bbdec4c23e6e1684c0dfa68ae8ddb
+Result  : ok
+
+Scenarios errors: 0
+Tests successes:  33
+Tests failures :  0
+

