@@ -19,7 +19,7 @@
 
 > [!TIP]
 > Since the **“pokemon”** process is slow, pauses, and observes the results, it is **very slow** (**a turtle :turtle:**) compared to other exploits that run “infinite” loops (hares :rabbit:).
-><br>That's why it's called **Turtwig** (thanks to Téo).
+> That's why it's called **Turtwig** (thank to [Téo](https://www.linkedin.com/in/teo-mosnier-22180621b)).
 
 # :turtle: Usage
 
@@ -363,11 +363,14 @@ trdc-debian-wheezy-386.elf: ELF 32-bit LSB executable, Intel 80386, version 1 (S
 ```
 </details>
 
-# :skull: From SQL Injection to Shell to Root (use case)
+# :skull: From SQL Injection to Shell to "root" (use case)
  
 :free: [From SQL Injection to Shell](https://pentesterlab.com/exercises/from-sqli-to-shell) is a free exercice of [Pentesterlab](https://pentesterlab.com). :test_tube:
  
-In the exercice we gain access to a web shell as `www-data`, so why not trying to be `root`? The vulnerable machine is an Debian 6 (`from_sqli_to_shell_i386.iso`), so that's where I started my Dirty COW “quest”.
+In the exercice we gain access to a web shell as `www-data`, so why not trying to be `root`? The vulnerable machine is an Debian 6 (`from_sqli_to_shell_i386.iso`), so that's where I started my Dirty COW “quest”: 
+1. :cow: [DirtyCow Origin](https://github.com/FrancoisCapon/BetaDirtyCowWithCowherd?tab=readme-ov-file#dirtycow-origin-cow) 
+1. :woman_farmer: [DirtyCow with Cowherd](https://github.com/FrancoisCapon/BetaDirtyCowWithCowherd?tab=readme-ov-file#dirtycow-with-cowherd-cow-woman_farmer)
+1. :turtle: [Turtle](https://github.com/FrancoisCapon/BetaDirtyCowWithCowherd?tab=readme-ov-file#turtle-rabbit-turtle)
 
 > [!NOTE]
 > `192.168.1.33` is the IP address of the Photoblog server.
@@ -397,7 +400,7 @@ drwxrwxrwx 2 www-data www-data   60 Aug 32 24:24 uploads
 ```
 </details>
 
-## :shield: Suhosin Patch By Pass
+## :shield: Bypassing Suhosin's ELF filter
 
 ```
 shell.php3?c=php -i
@@ -550,7 +553,7 @@ shell.php3?c=grep -bo x:41:41 /etc/passwd
 602:x:41:41
 ```
 
-The offset off the data to write is `620` and the string (data) is "`azmJb5b.yzpAA:00:00:Gnats  Bug-Reporting  `" (beware to spaces).
+The offset off the data to write is `602` and the string (data) is "`azmJb5b.yzpAA:00:00:Gnats  Bug-Reporting  `" (beware to spaces).
 
 ### :cow: Let's exploit Dirty COW :turtle:
 
