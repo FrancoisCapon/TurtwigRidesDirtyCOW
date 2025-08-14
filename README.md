@@ -453,7 +453,7 @@ data:	read from stdin ( | or < )
 
 Now, we can use trdc to update any file that we can only read such as configuration files or the accounts file ; **the only limit is our imagination!**
 
-In our case, the goal is to become `root`, here are two ways to achieve this.
+In our case, the goal is to become "`root`", here are two ways to achieve this.
 
 ## :one: Update the root line of /etc/passwd
 
